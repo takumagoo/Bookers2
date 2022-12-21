@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   # Sign_in後のpath
   def after_sign_in_path_for(resource)
-    users_path
+    user_path(current_user.id)
   end
   # log_out後のpath
   def after_sign_out_path_for(resource)
