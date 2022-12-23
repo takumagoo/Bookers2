@@ -38,7 +38,9 @@
                 <%= link_to "edit", edit_book_path(@book.id), class: "btn btn-success" %>
               </td>
               <!--destroy td-->
-              <td></td>
+              <td>
+                <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
+              </td>
             </tr>
           </tbody>
         </table>
