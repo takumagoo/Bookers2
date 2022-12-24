@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'homes/about'
   # bookページ
-  resources :books, only: [:create, :index, :show, :edit, :destroy]
+  resources :books, only: [:create, :index, :show, :edit, :destroy, :update
+]
   # get 'books/new'
   # get 'books/index'
   # get 'books/show'
