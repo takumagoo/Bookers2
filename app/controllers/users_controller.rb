@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @users = User.new(post_image_params)
     @users.user_id = current_user.id
     @users.save
-    flash[:notice] = "You have created book successfully."
+    flash[:notice] = "You have created user successfully."
     # redirect_to post_images_path
   end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    flash[:notice] = "You have updated book successfully."
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path(user.id)
   end
 

@@ -4,10 +4,12 @@ class ApplicationController < ActionController::Base
   # Sign_in後のpath
   def after_sign_in_path_for(resource)
     user_path(current_user.id)
+    # flash[:notice] = "Login OK"
   end
   # log_out後のpath
   def after_sign_out_path_for(resource)
     root_path
+    # flash[:notice] = "You have created user successfully."
   end
 
   # #log_in後のpath
@@ -20,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   # devise版のストロングパラメータ
   def configure_permitted_parameters
-    	devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    	devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
       # devise_parameter_sanitizer.permit(:log_in, keys: [:name])
   end
 
