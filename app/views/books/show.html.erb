@@ -33,11 +33,16 @@
                 <p><%= @book.body %></p>
               </td>
               <td>
-                <%= link_to "edit", edit_book_path(@book.id), class: "btn btn-success" %>
+                <% if @book.user == current_user %>
+                  <%= link_to "edit", edit_book_path(@book.id), class: "btn btn-success" %>
+                <% end %>
               </td>
               <!--destroy td-->
               <td>
-                <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
+                <%#= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
+                <% if @book.user == current_user %>
+	                <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
+                <% end %>
               </td>
             </tr>
           </tbody>

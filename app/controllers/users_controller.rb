@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   def create
     @users = User.new(post_image_params)
     @users.user_id = current_user.id
-    @users.save
-    flash[:notice] = "You have created user successfully."
-    # redirect_to post_images_path
+    if @users.save
+        flash[:notice] = "You have created user successfully."
+    else
+      render :edit
+    end
   end
 
   def new
