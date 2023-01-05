@@ -51,7 +51,8 @@
         <%= f.text_area :body %>
         <!--<#%= f.submit '投稿' %>-->
         <div class="form-group">
-          <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book" />
+          <%= f.submit 'Create Book', class: "btn btn-success"%>
+          <!--<input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book" />-->
         </div>
       <% end %>
 

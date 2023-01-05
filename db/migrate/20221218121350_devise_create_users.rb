@@ -37,6 +37,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       ## 自己紹介文tableを追加
       t.string :introduction
 
+      t.string :profile_image_id
+
       t.timestamps null: false
     end
 
