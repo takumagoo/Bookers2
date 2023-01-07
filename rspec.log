@@ -1,0 +1,9 @@
+
+Bookモデルのテスト
+  バリデーションのテスト
+    titleカラム
+[32m      空欄でないこと[0m
+
+Finished in 0.7191 seconds (files took 3.26 seconds to load)
+[32m1 example, 0 failures[0m
+

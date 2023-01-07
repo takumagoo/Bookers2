@@ -10,7 +10,9 @@
           <tbody>
               <!--画像-->
             <tr>
-              <th><%= image_tag 'sample-author1.jpg', size: "100x100" %></th>
+              <th>
+                  <%= image_tag 'sample-author1.jpg', size: "80x80" %>
+              </th>
             </tr>
             <tr>
               <th>name</th>
@@ -54,7 +56,9 @@
               <td></td>
               <!--ユーザー画像-->
               <td>
-                <%= image_tag 'sample-author1.jpg', size: "80x80" %><br>
+                <%= link_to  user_path(@user.id) do %>
+                  <%= image_tag 'sample-author1.jpg', size: "80x80" %><br>
+                <% end %>
                 <!--user/show画面へのリンク-->
                 <%= link_to user_path(@user.id) do %>
                   <%= @user.name %>
