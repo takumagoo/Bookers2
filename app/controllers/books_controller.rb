@@ -13,7 +13,7 @@ class BooksController < ApplicationController
       render :index
     end
   end
-  
+
   def index
      @book = Book.new
      @books = Book.all
@@ -57,8 +57,10 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
 
+  # 本のユーザーidとログインしているユーザーidが一致していない時、一覧ページにリダイレクト
   def is_matching_login_user
-    user_id = params[:id].to_i
+    @book = Book.find(params[:id])
+    user_id = @book.user_id
     unless user_id == current_user.id
       redirect_to books_path
     end

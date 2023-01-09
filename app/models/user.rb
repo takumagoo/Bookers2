@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # belongs_to :book
   has_many :books, dependent: :destroy
-  validates :name, length: { minimum: 2, maximum: 20 }, presence: true
+  validates :name, length: { minimum: 2, maximum: 20 }, presence: true, uniqueness: true
   validates :introduction, length: { minimum: 0, maximum: 50 }
 
   # has_many :name, dependent: :destroy
