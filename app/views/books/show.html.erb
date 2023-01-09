@@ -11,16 +11,16 @@
               <!--画像-->
             <tr>
               <th>
-                  <%= image_tag 'sample-author1.jpg', size: "80x80" %>
+                  <%= image_tag @user.get_profile_image(100,100) %>
               </th>
             </tr>
             <tr>
               <th>name</th>
-              <th><%= current_user.name %></th>
+              <th><%= @user.name %></th>
             </tr>
             <tr>
               <th>introduction</th>
-              <th><%= current_user.introduction %></th>
+              <th><%= @user.introduction %></th>
             </tr>
           </tbody>
         </table>
@@ -57,7 +57,7 @@
               <!--ユーザー画像-->
               <td>
                 <%= link_to  user_path(@user.id) do %>
-                  <%= image_tag 'sample-author1.jpg', size: "80x80" %><br>
+                  <%= image_tag @user.get_profile_image(80,80) %><br>
                 <% end %>
                 <!--user/show画面へのリンク-->
                 <%= link_to user_path(@user.id) do %>
@@ -66,21 +66,23 @@
               </td>
 
               <td>
-                <p><%= @book.title %></p>
+                <%= link_to book_path(@book.id) do %>
+                  <%= @book.title %>
+                <% end %>
               </td>
               <td>
                 <p><%= @book.body %></p>
               </td>
               <td>
                 <% if @book.user == current_user %>
-                  <%= link_to "edit", edit_book_path(@book.id), class: "btn btn-success" %>
+                  <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %>
                 <% end %>
               </td>
               <!--destroy td-->
               <td>
                 <%#= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
                 <% if @book.user == current_user %>
-	                <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
+	                <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
                 <% end %>
               </td>
             </tr>
@@ -88,5 +90,4 @@
         </table>
       </div>
     </div>
-
   </div>

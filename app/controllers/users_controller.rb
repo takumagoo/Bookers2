@@ -28,13 +28,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def get_image
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
-    image
-  end
+  # def get_image
+  #   unless image.attached?
+  #     file_path = Rails.root.join('app/assets/images/no_image.jpg')
+  #     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+  #   end
+  #   image
+  # end
 
   def update
     @user = User.find(params[:id])
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
    # ストロングパラメータ
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
   def is_matching_login_user
