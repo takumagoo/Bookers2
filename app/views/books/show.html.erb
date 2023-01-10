@@ -27,7 +27,7 @@
 
         <div class="row">
           <!--<#%= link_to 'マイページ',  edit_user_path(current_user.id), class: "btn btn-outline-secondary  btn-block" %>-->
-          <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary  btn-block" do %>
+          <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary  btn-block" do %>
             <!--<i class="fa fa-edit"></i>-->
             <i class="fas fa-user-cog"></i>
           <% end %>
@@ -73,18 +73,17 @@
               <td>
                 <p><%= @book.body %></p>
               </td>
-              <td>
-                <% if @book.user == current_user %>
+              <% if @book.user == current_user %>
+                <td>
                   <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %>
-                <% end %>
-              </td>
+                </td>
+              <% end %>
               <!--destroy td-->
-              <td>
-                <%#= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
-                <% if @book.user == current_user %>
+              <% if @book.user == current_user %>
+                <td>
 	                <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger"%>
-                <% end %>
-              </td>
+                </td>
+              <% end %>
             </tr>
           </tbody>
         </table>

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # belongs_to :book
   has_many :books, dependent: :destroy
   validates :name, length: { minimum: 2, maximum: 20 }, presence: true, uniqueness: true
-  validates :introduction, length: { minimum: 0, maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
 
   # has_many :name, dependent: :destroy
   has_one_attached :profile_image
